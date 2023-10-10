@@ -1,0 +1,6 @@
+application:
+  thread-pool:
+    core-pool-size: 10
+    max-pool-size: 100
+    queue-capacity: 100
+    thread-name-prefix: thread-pool-xxxxx
