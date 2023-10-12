@@ -21,3 +21,12 @@ public class PersistenceJPAConfig{
    }
 }
 ```
+
+## @Transactional:
+L'annotation **@Transactional** supporte plusieurs paramétres:
++ **_Propagation_**: Type de la transaction.
++ **_Isolation Level_**: Niveau de la transaction.
++ **_Timeout_**: Timeout de la transaction.
++ **_readOnly flag_**: Mettre la trasaction en mode lecture seule.
++ **_Rollback_**: La gestion du Rollback.
+> **N.B:** _Par défaut le Rollback se produit uniquement au moment de **l'exécution(runtime)**, avec **les exceptions non vérifiées**. L'exception vérifiée ne déclenche pas d'annulation de la transaction. Nous pouvons bien sûr configurer ce comportement avec les paramètres d'annotation **rollbackFor** et **noRollbackFor**._
