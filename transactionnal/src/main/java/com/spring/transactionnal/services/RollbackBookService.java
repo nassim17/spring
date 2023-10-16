@@ -2,9 +2,11 @@ package com.spring.transactionnal.services;
 
 import com.spring.transactionnal.entity.Book;
 import com.spring.transactionnal.repository.BookRepository;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,11 +24,12 @@ public class RollbackBookService {
    * Result: The book is saved and is not rolled back.
    *
    * @param book
+   * @throws SQLException
    */
   @Transactional
-  public void saveBookCheckedExceptionByDefault(Book book){
+  public void saveBookCheckedExceptionByDefault(Book book) throws SQLException {
     bookRepository.save(book);
-    throw new DataIntegrityViolationException("Throwing exception for demoing Rollback!!!");
+    throw new SQLException("Throwing exception for demoing Rollback!!!");
   }
 
   /**
@@ -35,11 +38,12 @@ public class RollbackBookService {
    * Result: The book is not saved, it is rolled back.
    *
    * @param book
+   * @throws SQLDataException
    */
-  @Transactional(rollbackFor = {DataIntegrityViolationException.class})
-  public void saveBookCheckedExceptionCustomRollback(Book book){
+  @Transactional(rollbackFor = {SQLDataException.class})
+  public void saveBookCheckedExceptionCustomRollback(Book book) throws SQLDataException {
     bookRepository.save(book);
-    throw new DataIntegrityViolationException("Throwing exception for demoing Rollback!!!");
+    throw new SQLDataException("Throwing exception for demoing Rollback!!!");
   }
 
   /**
@@ -48,12 +52,11 @@ public class RollbackBookService {
    * Result: The book is not saved, it is rolled back.
    *
    * @param book
-   * @throws SQLException
    */
   @Transactional
-  public void saveBookUncheckedExceptionByDefault(Book book) throws SQLException{
+  public void saveBookUncheckedExceptionByDefault(Book book){
     bookRepository.save(book);
-    throw new SQLException("Throwing exception for demoing rollback");
+    throw new DataIntegrityViolationException("Throwing exception for demoing rollback");
   }
 
   /**
@@ -62,11 +65,10 @@ public class RollbackBookService {
    * Result: The book is saved and is not rolled back.
    *
    * @param book
-   * @throws SQLException
    */
-  @Transactional(noRollbackFor = { SQLException.class })
-  public void saveBookUncheckedExceptionCustomNoRollback(Book book) throws SQLException{
+  @Transactional(noRollbackFor = { DuplicateKeyException.class })
+  public void saveBookUncheckedExceptionCustomNoRollback(Book book){
     bookRepository.save(book);
-    throw new SQLException("Throwing exception for demoing rollback");
+    throw new DuplicateKeyException("Throwing exception for demoing rollback");
   }
 }
