@@ -13,13 +13,13 @@ public class WebSocketBrokerConfig implements WebSocketMessageBrokerConfigurer {
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.setApplicationDestinationPrefixes("/app");
-    registry.setUserDestinationPrefix("/user");
-    registry.enableSimpleBroker("/topic");
+    registry.enableSimpleBroker("/topic"); // Activation du broker de diffusion
+    registry.setApplicationDestinationPrefixes("/app"); // Définition du préfixe des destinations gérées par l'application
+    registry.setUserDestinationPrefix("/user"); // Définition du préfixe pour les destinations de l'utilisateur
   }
 
   @Override
   public void registerStompEndpoints(StompEndpointRegistry registry) {
-    registry.addEndpoint("/ws/stomp").setAllowedOrigins("*");
+    registry.addEndpoint("/ws/stomp").setAllowedOrigins("*").withSockJS();
   }
 }

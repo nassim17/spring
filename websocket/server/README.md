@@ -38,3 +38,5 @@ Voici quelques-unes des méthodes les plus couramment utilisées de _**MessageBr
 Cette classe est utilisée pour enregistrer les endpoints WebSocket que les clients utiliseront pour établir des connexions WebSocket avec le serveur. Elle permet de configurer ces endpoints, y compris les options de sécurité, les transports pris en charge, et d'autres paramètres liés à la configuration des connexions WebSocket.
 + _**addEndpoint(String... paths):**_ Elle spécifie l'URL de l'endpoint WebSocket que les clients utiliseront pour établir une connexion WebSocket. C'est l'URL à laquelle les clients enverront une requête WebSocket pour démarrer une session WebSocket.
 + _**setAllowedOrigins(String... origins):**_  Elle est utilisée pour configurer la liste des origines autorisées à accéder à un endpoint WebSocket.
++ _**withSockJS():**_ Elle fournit la bibliothèque JavaScript SockJS qui permet aux navigateurs qui ne prennent pas en charge WebSocket natif d'établir des connexions WebSocket de secours.
+
