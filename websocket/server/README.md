@@ -50,3 +50,4 @@ Cette classe est utilisée pour la gestion et l'envoi de messages simples, notam
 + _**convertAndSendToUser(String user, String destination, Object payload):**_ Permet d'envoyer des messages à un utilisateur spécifique.
 
 Dans la classe ChatController nous avons 5 exemples d'utilisation des WebSockets.
+
