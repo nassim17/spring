@@ -40,3 +40,13 @@ Cette classe est utilisée pour enregistrer les endpoints WebSocket que les clie
 + _**setAllowedOrigins(String... origins):**_  Elle est utilisée pour configurer la liste des origines autorisées à accéder à un endpoint WebSocket.
 + _**withSockJS():**_ Elle fournit la bibliothèque JavaScript SockJS qui permet aux navigateurs qui ne prennent pas en charge WebSocket natif d'établir des connexions WebSocket de secours.
 
+### Annotations utiles:
++ _**@MessageMapping:**_ Elle est utilisée pour mapper une méthode de contrôleur à une destination de message WebSocket.
++ _**@SendTo:**_ Elle permet d'envoyer des réponses à des destinations spécifiques pour les clients WebSocket.
++ _**@SendToUser:**_ Elle permet une communication ciblée avec des utilisateurs individuels.
+### SimpMessagingTemplate:
+Cette classe est utilisée pour la gestion et l'envoi de messages simples, notamment pour la communication en temps réel avec des clients WebSocket.
++ _**convertAndSend(D destination, Object payload):**_ Permet d'envoyer des messages à des destinations spécifiques.
++ _**convertAndSendToUser(String user, String destination, Object payload):**_ Permet d'envoyer des messages à un utilisateur spécifique.
+
+Dans la classe ChatController nous avons 5 exemples d'utilisation des WebSockets.
