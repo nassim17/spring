@@ -20,10 +20,16 @@ public class ThreadPoolConfiguration {
   @Bean
   public TaskExecutor threadPoolTaskExecutor() {
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+    // Configuration de la taille du pool de threads
     executor.setCorePoolSize(threadPool.corePoolSize);
     executor.setMaxPoolSize(threadPool.maxPoolSize);
+
+    // Configuration de la capacité de la file d'attente
     executor.setQueueCapacity(threadPool.queueCapacity);
+
+    // Configuration du préfixe du nom des threads
     executor.setThreadNamePrefix(threadPool.threadNamePrefix);
+
     executor.initialize();
     return executor;
   }
