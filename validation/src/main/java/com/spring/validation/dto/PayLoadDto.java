@@ -8,8 +8,13 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ExempleDto {
+
+@Setter
+@Getter
+public class PayLoadDto {
 
     @NotNull(message = "Le nom ne peut pas être nul")
     @Size(min = 2, max = 50, message = "Le nom doit avoir entre 2 et 50 caractères")
