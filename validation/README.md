@@ -4,5 +4,6 @@
 
 Validation de l'entrée sur un contrôleur Spring MVC
 
-1) Valider un corps de requête
-2) Validation des variables de chemin et des paramètres de requête
+1) Valider une RequestBody
+2) Validation des RequestParameters
+3) Validation des PathVariables
