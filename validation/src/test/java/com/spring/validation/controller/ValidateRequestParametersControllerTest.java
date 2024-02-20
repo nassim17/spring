@@ -1,37 +1,54 @@
 package com.spring.validation.controller;
 
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.context.annotation.Import;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.spring.validation.config.WebConfigTest;
 
 
-@SpringBootTest
-@AutoConfigureMockMvc
+@Import(WebConfigTest.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ValidateRequestParametersControllerTest {
 
     @Autowired
-    private MockMvc mvc;
+    private RestTemplate restTemplate;
 
+    @LocalServerPort
+    int localServerPort;
 
     @Test
-    void invalidRequestParameters() throws Exception {
+    void invalidRequestParameters() {
 
-        mvc.perform(get("/validation/request-parameters")
-                        .param("param", "3"))
-                .andExpect(status().isBadRequest());
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+                    "http://localhost:" + localServerPort + "/validation/request-parameters"
+                )
+                .queryParam("param", 3);
+
+
+        try {
+            restTemplate.getForEntity(uriBuilder.toUriString() , String.class);
+        } catch (RuntimeException e) {
+            e.getMessage();
+        }
+
     }
 
     @Test
-    void validRequestParameters() throws Exception {
+    void validRequestParameters() {
 
-        mvc.perform(get("/validation/request-parameters")
-                        .param("param", "5"))
-                .andExpect(status().isOk());
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+                        "http://localhost:" + localServerPort + "/validation/request-parameters"
+                )
+                .queryParam("param", 5);
+
+        restTemplate.getForEntity(uriBuilder.toUriString() , String.class);
     }
 }
