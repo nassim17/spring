@@ -1,13 +1,13 @@
-package com.spring.transactionnal;
+package com.spring.transaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TransactionnalApplication {
+public class TransactionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TransactionnalApplication.class, args);
+		SpringApplication.run(TransactionApplication.class, args);
 	}
 
 }

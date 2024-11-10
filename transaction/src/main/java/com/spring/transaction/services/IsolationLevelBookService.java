@@ -1,8 +1,8 @@
-package com.spring.transactionnal.services;
+package com.spring.transaction.services;
 
 
-import com.spring.transactionnal.entity.Book;
-import com.spring.transactionnal.repository.BookRepository;
+import com.spring.transaction.entity.Book;
+import com.spring.transaction.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;

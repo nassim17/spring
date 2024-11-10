@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>com.spring</groupId>
-	<artifactId>transactionnal </artifactId>
+	<artifactId>transaction</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>transactionnal </name>
+	<name>transaction</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

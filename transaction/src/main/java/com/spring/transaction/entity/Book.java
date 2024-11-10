@@ -1,4 +1,4 @@
-package com.spring.transactionnal.entity;
+package com.spring.transaction.entity;
 
 
 import jakarta.persistence.*;
