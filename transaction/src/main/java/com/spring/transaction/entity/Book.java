@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "book", schema = "ref_library ")
+@Table(name = "book")
 public class Book {
 
   @Id

@@ -1,1 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/transaction_test
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: update # ou "validate", "create", "create-drop" selon vos besoins
+    show-sql: true     # Affiche les requêtes SQL dans la console
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Pour configurer la journalisation des transactions, si nécessaire
+logging:
+  level:
+    org:
+      springframework:
+        transaction: DEBUG
+        orm:
+          jpa: DEBUG
+    hibernate:
+      SQL: DEBUG
+      transaction: DEBUG
