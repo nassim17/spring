@@ -1,4 +1,4 @@
-package com.spring.transaction.common.entity;
+package com.spring.transactional.common.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

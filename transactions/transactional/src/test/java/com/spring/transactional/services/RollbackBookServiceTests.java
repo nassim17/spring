@@ -1,10 +1,10 @@
-package com.spring.transaction.services;
+package com.spring.transactional.services;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.spring.transaction.entity.Book;
-import com.spring.transaction.repository.BookRepository;
+import com.spring.transactional.entity.Book;
+import com.spring.transactional.repository.BookRepository;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.Optional;

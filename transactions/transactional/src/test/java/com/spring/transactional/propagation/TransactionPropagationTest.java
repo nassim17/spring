@@ -1,4 +1,4 @@
-package com.spring.transaction.propagation;
+package com.spring.transactional.propagation;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,9 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.IllegalTransactionStateException;
 import org.springframework.transaction.NestedTransactionNotSupportedException;
 
-import com.spring.transaction.common.entity.Purchase;
-import com.spring.transaction.common.repository.PurchaseRepository;
-import com.spring.transaction.propagation.services.MainService;
+import com.spring.transactional.common.entity.Purchase;
+import com.spring.transactional.common.repository.PurchaseRepository;
+import com.spring.transactional.propagation.services.MainService;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

@@ -1,9 +1,9 @@
-package com.spring.transaction.propagation.services;
+package com.spring.transactional.propagation.services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.transaction.common.entity.Purchase;
+import com.spring.transactional.common.entity.Purchase;
 
 import lombok.RequiredArgsConstructor;
 
