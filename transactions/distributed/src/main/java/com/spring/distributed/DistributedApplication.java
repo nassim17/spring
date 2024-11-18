@@ -1,13 +1,13 @@
-package com.spring.distributed_atomikos_two_bdd;
+package com.spring.distributed;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DistributedAtomikosTwoBddApplication {
+public class DistributedApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DistributedAtomikosTwoBddApplication.class, args);
+		SpringApplication.run(DistributedApplication.class, args);
 	}
 
 }

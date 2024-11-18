@@ -1,10 +1,10 @@
-package com.spring.distributed_atomikos_two_bdd;
+package com.spring.distributed;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DistributedAtomikosTwoBddApplicationTests {
+class DistributedApplicationTests {
 
 	@Test
 	void contextLoads() {

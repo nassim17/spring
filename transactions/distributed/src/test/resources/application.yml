@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: distributed
+
+  main:
+    allow-bean-definition-overriding: true
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    bank-a:
+      url: jdbc:postgresql://localhost:5432/bank_a
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    bank-b:
+      url: jdbc:postgresql://localhost:5432/bank_b
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    com.atomikos: WARN
