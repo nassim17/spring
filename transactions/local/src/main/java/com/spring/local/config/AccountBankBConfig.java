@@ -1,4 +1,4 @@
-package com.spring.distributed.config;
+package com.spring.local.config;
 
 import javax.sql.DataSource;
 
@@ -18,7 +18,7 @@ import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = "com.spring.distributed.bankb",
+        basePackages = "com.spring.local.bankb",
         entityManagerFactoryRef = "entityManagerFactoryBankB",
         transactionManagerRef = "transactionManagerBankB"
 )

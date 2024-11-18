@@ -1,4 +1,4 @@
-package com.spring.distributed.bankb.entity;
+package com.spring.local.bankb.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

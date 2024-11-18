@@ -21,6 +21,15 @@ spring:
       password: admin
       driver-class-name: org.postgresql.Driver
 
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: gunenv
+    password: gunenv
+
+  jms:
+    listener:
+      destination-name: accountBankQueue
+
 logging:
   level:
     com.atomikos: WARN

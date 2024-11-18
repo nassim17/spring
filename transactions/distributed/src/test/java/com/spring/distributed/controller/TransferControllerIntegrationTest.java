@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,27 +110,5 @@ class TransferControllerIntegrationTest {
 
         // Vérifier que le compte dans Bank B n'a pas été crédité (car rollback)
         assertFalse(accountBankBRepository.existsById(accountB.getId()));
-    }
-
-    @Test
-    void localTransferWhenSecondTransactionFailsTest() throws Exception {
-        // Injecter une exception pour l'opération sur Bank B
-        accountBankBRepository.deleteById(accountB.getId());
-
-        // Simuler une requête REST pour effectuer un transfert
-        mockMvc.perform(post("/api/local-transfer")
-                        .param("fromAccountId", accountA.getId().toString())
-                        .param("toAccountId", accountB.getId().toString())
-                        .param("amount", "500"))
-                .andExpect(status().isInternalServerError())
-                .andExpect(content().string(Matchers.containsString("Transfer failed")));
-
-        // Vérifier que le solde du compte dans Bank A a été modifié
-        accountA = accountBankARepository.findById(accountA.getId()).orElseThrow();
-
-        // Vérifier que le compte dans Bank B n'a pas été crédité
-        assertFalse(accountBankBRepository.existsById(accountB.getId()));
-
-        Assertions.assertEquals(500.0, accountA.getBalance(), "Bank A should not rollback");
     }
 }

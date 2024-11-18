@@ -1,4 +1,4 @@
-package com.spring.distributed.controller;
+package com.spring.local.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +24,18 @@ public class TransferController {
             @RequestParam double amount) {
         try {
             transferService.transfer(fromAccountId, toAccountId, amount);
+            return ResponseEntity.ok("Transfer successful");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Transfer failed: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/local-transfer")
+    public ResponseEntity<String> localTransferMoney(@RequestParam Long fromAccountId,
+            @RequestParam Long toAccountId,
+            @RequestParam double amount) {
+        try {
+            transferService.localTransfer(fromAccountId, toAccountId, amount);
             return ResponseEntity.ok("Transfer successful");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Transfer failed: " + e.getMessage());

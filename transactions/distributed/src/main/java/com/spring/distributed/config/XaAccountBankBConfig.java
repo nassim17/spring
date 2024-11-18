@@ -39,6 +39,7 @@ public class XaAccountBankBConfig {
         jpaProperties.put("hibernate.hbm2ddl.auto", "none");
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         jpaProperties.put("hibernate.show_sql", "true");
+        jpaProperties.put("hibernate.ddl-auto", "update");
         jpaProperties.put("hibernate.temp.use_jdbc_metadata_defaults", "false");
         jpaProperties.put("javax.persistence.transactionType", "JTA");
         return jpaProperties;
@@ -75,7 +76,7 @@ public class XaAccountBankBConfig {
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
         xaDataSource.setXaDataSource(pgxaDataSource);
         xaDataSource.setUniqueResourceName("BankB");
-        xaDataSource.setMaxPoolSize(30);
+        xaDataSource.setMaxPoolSize(10);
         return xaDataSource;
     }
 }

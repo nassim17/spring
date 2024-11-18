@@ -1,4 +1,4 @@
-package com.spring.distributed.bankb.entity;
+package com.spring.local.banka.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,8 +11,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "account_bank_b")
-public class AccountBankB {
+@Table(name = "account_bank_a")
+public class AccountBankA {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

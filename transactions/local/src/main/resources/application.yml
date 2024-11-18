@@ -1,9 +1,9 @@
+server:
+  port: 8081
+
 spring:
   application:
-    name: distributed
-
-  main:
-    allow-bean-definition-overriding: true
+    name: local
 
   jpa:
     properties:
@@ -35,7 +35,7 @@ logging:
   level:
     com.atomikos: WARN
 
-# Pour configurer la journalisation des transactions, si nÃ©cessaire
+    # Pour configurer la journalisation des transactions, si nécessaire
     org:
       springframework:
         transaction: DEBUG

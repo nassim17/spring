@@ -1,4 +1,4 @@
-package com.spring.distributed.service;
+package com.spring.local.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
